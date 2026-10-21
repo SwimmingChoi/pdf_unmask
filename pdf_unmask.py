@@ -78,6 +78,10 @@ def unmask(src: Path) -> tuple[Path, int]:
 
 
 def main():
+    # Windows의 리디렉션된 출력은 cp1252일 수 있어 한글 로그를 UTF-8로 통일한다.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="backslashreplace")
     paths = collect_pdfs([Path(p) for p in (sys.argv[1:] or pick_folder())])
     if not paths:
         print("처리할 PDF가 없습니다.")
