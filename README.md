@@ -11,7 +11,9 @@ GitHub에 푸시할 때마다 Windows x64 실행파일을 자동 빌드합니다
 1. [Actions → Build Windows EXE](https://github.com/SwimmingChoi/pdf_unmask/actions/workflows/build-windows.yml)로 이동합니다.
 2. 초록색 체크 표시로 완료된 실행을 엽니다.
 3. 페이지 아래 **Artifacts**에서 **PDF-unmask-Windows-x64**를 다운로드합니다. GitHub 로그인이 필요합니다.
-4. ZIP 파일을 풀고 `PDF마스킹제거.exe`를 실행합니다. Python 설치는 필요하지 않습니다.
+4. ZIP 파일 전체를 폴더에 풀고 그 안의 `PDF마스킹제거.exe`를 실행합니다. Python 설치는 필요하지 않습니다.
+
+exe와 함께 있는 `_internal` 폴더도 필요합니다. 이동하거나 공유할 때는 압축을 푼 폴더 전체를 함께 옮겨주세요.
 
 빌드 결과는 30일간 보관합니다. Actions의 **Run workflow**로 수동 빌드도 가능합니다.
 
@@ -24,4 +26,5 @@ GitHub에 푸시할 때마다 Windows x64 실행파일을 자동 빌드합니다
 ## 직접 빌드
 
 Windows에 Python 3.12를 설치한 뒤 `build.bat`를 실행합니다.
-완성된 파일은 `dist/PDF마스킹제거.exe` 경로에 생성됩니다.
+완성된 파일은 `dist/PDF마스킹제거/PDF마스킹제거.exe` 경로에 생성됩니다.
+배포할 때는 `dist/PDF마스킹제거` 폴더 전체를 ZIP으로 압축해 전달합니다.

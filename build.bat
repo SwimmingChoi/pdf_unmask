@@ -4,9 +4,9 @@ cd /d "%~dp0"
 echo [1/2] 필요한 패키지 설치 중...
 python -m pip install -r requirements-build.txt || goto :err
 echo [2/2] exe 만드는 중...
-python -m PyInstaller --onefile --clean --name PDF마스킹제거 pdf_unmask.py || goto :err
+python -m PyInstaller --onedir --clean --noconfirm --name PDF마스킹제거 pdf_unmask.py || goto :err
 echo.
-echo 완료: dist\PDF마스킹제거.exe
+echo 완료: dist\PDF마스킹제거\PDF마스킹제거.exe
 pause
 exit /b 0
 :err
